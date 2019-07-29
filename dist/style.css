@@ -1,0 +1,17 @@
+body {
+  overflow: hidden;
+}
+
+p {
+  position: absolute;
+  top: 8px;
+  left: 30px;
+  font-family: "Source Sans Pro";
+}
+
+body {
+  border: 1px solid black;
+  height: 200px;
+  background-color: black;
+}
+
