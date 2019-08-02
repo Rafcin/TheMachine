@@ -29,7 +29,7 @@ def getAllUrlsFromSoup(s):
 
     return urlArray
 
-
+soup = getSoupFromURL(targUrl)
 
 urlArray = getAllUrlsFromSoup(soup)
 
