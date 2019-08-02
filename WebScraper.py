@@ -15,21 +15,41 @@ targUrl = "https://github.com/googlesamples/android-RecyclerView/"
 targExt = ".java"
 saveDir = "/home/nvidia/Desktop/OpenAI-Data/data/scraped/"
 
-page = urllib2.urlopen(targUrl)
-soup = BeautifulSoup(page.read(), "lxml")
-links = soup.findAll("a")
 
-linkArray = []
+def getSoupFromURL(url): return BeautifulSoup(urllib2.urlopen(url).read(), "lxml")
 
-for link in links:
-    print (link["href"])
-    linkArray.append(link["href"])
+
+def getAllUrlsFromSoup(s):
+	a_elements = s.findAll("a")
+	urlArray = []
+
+	for link in links:
+	    print (link["href"])
+    	urlArray.append(link["href"])
+
+    return urlArray
+
+
+
+urlArray = getAllUrlsFromSoup(soup)
+
+#this is the function you need to crawl - depends on above functions
+# I highly recommend doing it asynchronously or something, I won't call it here but it's what you need
+# ps this is wrong I'm not done with it yet <3
+# def crawlPageLinks(urls):
+# 	for url in urls:
+# 		new_urls = getAllUrlsFromSoup(url)
+# 		if new_urls.length
+# 			crawlPageLinks(new_urls)
+		
+
 
 def randomFileEnding(lngth):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(lngth) )
 
-for url in linkArray:
+
+for url in urlArray:
     if "raw" in url and targExt in url:
         print(url)
         urllib2.urlretrieve(url,saveDir+"github_code_"+randomFileEnding(20)+".txt")
