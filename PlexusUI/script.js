@@ -49,13 +49,15 @@ function init() {
 
     }
 
-    var curve = new THREE.CubicBezierCurve3(positions);
+    /*
+    var curve = new THREE.CatmullRomCurve3(positions);
     var points = curve.getPoints(50);
     var geometry = new THREE.BufferGeometry().setFromPoints( points );
     var material = new THREE.LineBasicMaterial({color: colors});
     var splineObject = new THREE.Line(geometry,material)
 
     scene.add(splineObject)
+    */
   
     renderer = new THREE.WebGLRenderer();
     renderer.setClearColor( 0xffffff );
